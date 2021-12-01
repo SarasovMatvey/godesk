@@ -11,6 +11,7 @@ type Sdk struct {
 	Webhooks api.Webhooks
 	Messages api.Messages
 	Clients  api.Clients
+	Dialogs  api.Dialogs
 }
 
 func NewSdk(client client.Client) Sdk {
@@ -20,5 +21,6 @@ func NewSdk(client client.Client) Sdk {
 		Webhooks: api.Webhooks{Client: client},
 		Messages: api.Messages{Client: client},
 		Clients:  api.Clients{Client: client},
+		Dialogs:  api.Dialogs{Client: client},
 	}
 }
