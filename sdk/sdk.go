@@ -8,19 +8,21 @@ import (
 type Sdk struct {
 	C2dClient client.Client
 
-	Webhooks api.Webhooks
-	Messages api.Messages
-	Clients  api.Clients
-	Dialogs  api.Dialogs
+	Webhooks  api.Webhooks
+	Messages  api.Messages
+	Clients   api.Clients
+	Dialogs   api.Dialogs
+	Operators api.Operators
 }
 
 func NewSdk(client client.Client) Sdk {
 	return Sdk{
 		C2dClient: client,
 
-		Webhooks: api.Webhooks{Client: client},
-		Messages: api.Messages{Client: client},
-		Clients:  api.Clients{Client: client},
-		Dialogs:  api.Dialogs{Client: client},
+		Webhooks:  api.Webhooks{Client: client},
+		Messages:  api.Messages{Client: client},
+		Clients:   api.Clients{Client: client},
+		Dialogs:   api.Dialogs{Client: client},
+		Operators: api.Operators{Client: client},
 	}
 }
