@@ -1,3 +1,3 @@
-module gitlab.com/SarasovMatvey/godesk
+module github.com/SarasovMatvey/godesk
 
 go 1.17

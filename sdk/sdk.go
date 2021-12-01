@@ -1,8 +1,8 @@
 package sdk
 
 import (
-	"gitlab.com/SarasovMatvey/godesk/client"
-	"gitlab.com/SarasovMatvey/godesk/sdk/api"
+	"github.com/SarasovMatvey/godesk/client"
+	"github.com/SarasovMatvey/godesk/sdk/api"
 )
 
 type Sdk struct {

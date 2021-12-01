@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"gitlab.com/SarasovMatvey/godesk/client"
-	"gitlab.com/SarasovMatvey/godesk/sdk/domain"
-	"gitlab.com/SarasovMatvey/godesk/sdk/helper"
+	"github.com/SarasovMatvey/godesk/client"
+	"github.com/SarasovMatvey/godesk/sdk/domain"
+	"github.com/SarasovMatvey/godesk/sdk/helper"
 )
 
 type Clients struct {
