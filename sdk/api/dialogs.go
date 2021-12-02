@@ -8,14 +8,13 @@ import (
 
 	"github.com/SarasovMatvey/godesk/client"
 	"github.com/SarasovMatvey/godesk/sdk/domain"
-	"github.com/davecgh/go-spew/spew"
 )
 
 type Dialogs struct {
 	Client client.Client
 }
 
-func (d *Dialogs) Get(params domain.GetDialogsParams) (domain.GetDialogsResp, error) {
+func (d *Dialogs) Get(params domain.GetDialogsParams, meta *domain.MetaParams) (domain.GetDialogsResp, error) {
 	var baseUrl string
 
 	if params.Id != 0 {
@@ -26,9 +25,15 @@ func (d *Dialogs) Get(params domain.GetDialogsParams) (domain.GetDialogsResp, er
 
 	urlValues := url.Values{}
 
-	if params.Limit != 0 {
-		urlValues.Set("limit", strconv.Itoa(params.Limit))
+	if meta != nil {
+		if meta.Limit != 0 {
+			urlValues.Set("limit", strconv.Itoa(meta.Limit))
+		}
+		if meta.Offset != 0 {
+			urlValues.Set("offset", strconv.Itoa(meta.Limit))
+		}
 	}
+
 	if params.OperatorId != 0 {
 		urlValues.Set("operator_id", strconv.Itoa(params.OperatorId))
 	}
@@ -40,8 +45,6 @@ func (d *Dialogs) Get(params domain.GetDialogsParams) (domain.GetDialogsResp, er
 	}
 
 	resultUrl := baseUrl + "?" + urlValues.Encode()
-
-	spew.Dump(resultUrl)
 
 	req, err := http.NewRequest("GET", resultUrl, nil)
 	if err != nil {

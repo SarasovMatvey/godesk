@@ -23,7 +23,6 @@ type Dialog struct {
 
 type GetDialogsParams struct {
 	Id         int
-	Limit      int
 	OperatorId int
 	State      string
 	Order      string
