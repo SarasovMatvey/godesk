@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -9,11 +10,11 @@ import (
 	"github.com/SarasovMatvey/godesk/sdk/domain"
 )
 
-type Operators struct {
+type Statistics struct {
 	Client client.Client
 }
 
-func (c *Operators) Get(meta *domain.MetaParams) (domain.GetOperatorsResp, error) {
+func (s *Statistics) GetRequestStats(date string, meta *domain.MetaParams) (domain.GetRequestStatsResp, error) {
 	urlValues := url.Values{}
 
 	if meta != nil {
@@ -25,19 +26,19 @@ func (c *Operators) Get(meta *domain.MetaParams) (domain.GetOperatorsResp, error
 		}
 	}
 
-	baseUrl := c.Client.Config.BaseUrl + "operators"
-	resultUrl := baseUrl + "?" + urlValues.Encode()
+	baseUrl := s.Client.Config.BaseUrl + fmt.Sprintf("statistics?report=request_stats&date=%v", date)
+	resultUrl := baseUrl + urlValues.Encode()
 
 	req, err := http.NewRequest("GET", resultUrl, nil)
 	if err != nil {
-		return domain.GetOperatorsResp{}, err
+		return domain.GetRequestStatsResp{}, err
 	}
 
-	resp := new(domain.GetOperatorsResp)
+	resp := new(domain.GetRequestStatsResp)
 
-	err = c.Client.Exec(*req, resp)
+	err = s.Client.Exec(*req, resp)
 	if err != nil {
-		return domain.GetOperatorsResp{}, err
+		return domain.GetRequestStatsResp{}, err
 	}
 
 	return *resp, nil

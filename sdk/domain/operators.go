@@ -11,14 +11,8 @@ type Operator struct {
 	StatusId   int    `json:"status_id"`
 }
 
-type RespMeta struct {
-	Total  int `json:"total"`
-	Limit  int `json:"limit"`
-	Offset int `json:"offset"`
-}
-
 type GetOperatorsResp struct {
 	Data   []Operator `json:"data"`
-	Meta   RespMeta   `json:"meta"`
+	Meta   MetaResp   `json:"meta"`
 	Status string     `json:"status"`
 }
