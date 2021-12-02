@@ -30,5 +30,6 @@ type GetDialogsParams struct {
 
 type GetDialogsResp struct {
 	Data   []Dialog `json:"data"`
+	Meta   MetaResp `json:"meta"`
 	Status string   `json:"status"`
 }
