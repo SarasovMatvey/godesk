@@ -27,7 +27,7 @@ func (s *Statistics) GetRequestStats(date string, meta *domain.MetaParams) (doma
 	}
 
 	baseUrl := s.Client.Config.BaseUrl + fmt.Sprintf("statistics?report=request_stats&date=%v", date)
-	resultUrl := baseUrl + urlValues.Encode()
+	resultUrl := baseUrl + "&" + urlValues.Encode()
 
 	req, err := http.NewRequest("GET", resultUrl, nil)
 	if err != nil {

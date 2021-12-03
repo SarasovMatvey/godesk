@@ -7,7 +7,6 @@ import (
 
 	"github.com/SarasovMatvey/godesk/client"
 	"github.com/SarasovMatvey/godesk/sdk/domain"
-	"github.com/davecgh/go-spew/spew"
 )
 
 type Operators struct {
@@ -28,8 +27,6 @@ func (c *Operators) Get(meta *domain.MetaParams) (domain.GetOperatorsResp, error
 
 	baseUrl := c.Client.Config.BaseUrl + "operators"
 	resultUrl := baseUrl + "?" + urlValues.Encode()
-
-	spew.Dump(resultUrl)
 
 	req, err := http.NewRequest("GET", resultUrl, nil)
 	if err != nil {
