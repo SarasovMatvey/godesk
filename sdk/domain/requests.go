@@ -8,7 +8,6 @@ type Request struct {
 	RequestStartMode     string      `json:"request_start_mode"`
 	RequestStarter       string      `json:"request_starter"`
 	RequestTime          int         `json:"request_time"`
-	WorkingRequestTime   int         `json:"working_request_time"`
 	FirstOperatorRole    string      `json:"first_operator_role"`
 	RequestTags          string      `json:"request_tags"`
 	WorkingReactionTime  interface{} `json:"working_reaction_time"`
