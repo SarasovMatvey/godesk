@@ -36,9 +36,6 @@ func (c *Operators) Get(meta *domain.MetaParams) (domain.GetOperatorsResp, error
 	resp := new(domain.GetOperatorsResp)
 
 	err = c.Client.Exec(*req, resp)
-	if err != nil {
-		return domain.GetOperatorsResp{}, err
-	}
 
 	return *resp, nil
 }

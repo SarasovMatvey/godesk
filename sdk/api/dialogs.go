@@ -54,9 +54,6 @@ func (d *Dialogs) Get(params domain.GetDialogsParams, meta *domain.MetaParams) (
 	resp := new(domain.GetDialogsResp)
 
 	err = d.Client.Exec(*req, resp)
-	if err != nil {
-		return domain.GetDialogsResp{}, err
-	}
 
 	return *resp, nil
 }

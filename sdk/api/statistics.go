@@ -37,9 +37,6 @@ func (s *Statistics) GetRequestStats(date string, meta *domain.MetaParams) (doma
 	resp := new(domain.GetRequestStatsResp)
 
 	err = s.Client.Exec(*req, resp)
-	if err != nil {
-		return domain.GetRequestStatsResp{}, err
-	}
 
 	return *resp, nil
 }

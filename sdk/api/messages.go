@@ -23,9 +23,6 @@ func (m Messages) GetAll(params domain.GetAllMessagesParams) (domain.GetAllMessa
 	resp := new(domain.GetAllMessagesResp)
 
 	err = m.Client.Exec(*req, resp)
-	if err != nil {
-		return domain.GetAllMessagesResp{}, err
-	}
 
 	return *resp, nil
 }
@@ -41,9 +38,6 @@ func (m Messages) AddInbox(params domain.AddInboxMessageParams) (domain.StatusRe
 	resp := new(domain.StatusResp)
 
 	err = m.Client.Exec(*req, resp)
-	if err != nil {
-		return domain.StatusResp{}, err
-	}
 
 	return *resp, nil
 }
