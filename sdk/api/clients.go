@@ -22,7 +22,7 @@ func (c *Clients) Get(clientId int) (domain.GetClientResp, error) {
 
 	resp := new(domain.GetClientResp)
 
-	err = c.Client.Exec(*req, resp)
+	_ = c.Client.Exec(*req, resp)
 
 	return *resp, nil
 }
@@ -35,7 +35,7 @@ func (c *Clients) GetAll() (domain.GetAllClientsResp, error) {
 
 	resp := new(domain.GetAllClientsResp)
 
-	err = c.Client.Exec(*req, resp)
+	_ = c.Client.Exec(*req, resp)
 
 	return *resp, nil
 }
@@ -50,7 +50,7 @@ func (c *Clients) Add(params domain.AddClientParams) (domain.GetClientResp, erro
 
 	resp := new(domain.GetClientResp)
 
-	err = c.Client.Exec(*req, resp)
+	_ = c.Client.Exec(*req, resp)
 
 	return *resp, nil
 }
@@ -65,7 +65,7 @@ func (c *Clients) SetClientExtraInfo(params domain.SetClientExtraInfoParams) (do
 
 	resp := new(domain.StatusResp)
 
-	err = c.Client.Exec(*req, resp)
+	_ = c.Client.Exec(*req, resp)
 
 	return *resp, nil
 }
